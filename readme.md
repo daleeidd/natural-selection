@@ -34,20 +34,22 @@ set --local pairs '\'"()[]{}'
 set --local characters (string split '' "$letters$numbers$special$pairs")
 
 # Use fish_key_reader to find out bindings. These are a combination of escape sequences and hex codes.
+# The following should already be sent by your terminal:
 set --local left                \e'[C'
 set --local right               \e'[D'
 set --local shift_left          \e'[1;2D'
 set --local shift_right         \e'[1;2C'
 set --local backspace           \x7f
 set --local delete              \e'[3~'
+set --local option_left         \eb
+set --local option_right        \ef
+# The following will need to be added to be sent by your terminal:
+set --local option_shift_left   \e'[1;10D'
+set --local option_shift_right  \e'[1;10C'
 set --local command_shift_left  \e'[H'
 set --local command_shift_right \e'[F'
 set --local command_left        \ca
 set --local command_right       \ce
-set --local option_left         \eb
-set --local option_right        \ef
-set --local option_shift_left   \e'[1;10D'
-set --local option_shift_right  \e'[1;10C'
 set --local command_backspace   \cU
 set --local command_delete      \ck
 set --local option_backspace    \cw
