@@ -59,8 +59,8 @@ set --local command_x           \e'[O'
 set --local command_v           \e'[L'
 
 if functions --query _natural_selection
-  bind $left                '_natural_selection forward-char'
-  bind $right               '_natural_selection backward-char'
+  bind $left                '_natural_selection backward-char'
+  bind $right               '_natural_selection forward-char'
   bind $shift_left          '_natural_selection backward-char --is-selecting'
   bind $shift_right         '_natural_selection forward-char --is-selecting'
   bind $command_left        '_natural_selection beginning-of-line'
