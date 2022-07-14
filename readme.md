@@ -15,7 +15,7 @@ It also provides functions for integrations with other plugins.
 - Clipboard integration
 
 ## Installation
-`fisher add daleeidd/natural-selection`
+`fisher install daleeidd/natural-selection`
 
 Follow on to [usage](#usage) as this plugin does not provide key bindings.
 
