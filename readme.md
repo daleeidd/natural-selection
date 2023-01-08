@@ -14,6 +14,10 @@ It also provides functions for integrations with other plugins.
 - Makes selection useful outside of Vi mode
 - Clipboard integration
 
+## Requirements
+
+- Fish 3.6.0 or later
+
 ## Installation
 `fisher install daleeidd/natural-selection`
 
