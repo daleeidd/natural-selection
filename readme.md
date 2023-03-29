@@ -128,31 +128,28 @@ Standard usage.
 ## Frequently Asked Questions
 
 ### Will this work in Vi mode?
-Not sure. It was developed in default mode (Emacs). I doubt Vi mode users would be interested.
+Unlikely. It was developed in default mode (Emacs) and I do not believe it is suitable for Vi mode.
 
 ### Will this work in X operating system?
-Not sure. It was developed in macOS. I will consider supporting other operating systems.
+Maybe. It was developed in macOS and it has not been tested elsewhere.
 
-### Why can't I use `⌘` + `v` for paste?
+### Why cannot I use <kbd>⌘ Command</kbd> + <kbd>V</kbd> for paste?
 You can. But you will lose paste functionality elsewhere like editors. This needs to be worked out still.
 
-### Why aren't you providing bindings on install?
+### Why are you not providing bindings on install?
 Conflicts mainly. It is advantageous to both parties for consumers to set their own bindings.
 
-### Why are you suggesting binding characters rather than suggesting X?
+### Why are you suggesting binding characters?
 This is the simplest way to achieve results. A more elegant or efficient solution might be needed.
 
 ### Can this work with X?
-Not sure. Open an issue.
+If there is a binding conflict, then no. It will need an integration (not taking requests).
 
-### Can you please port this to X?
-I know this can be done with zsh since this started out as a port of my own implementation. In fact, most of this can be done with native zsh features. But to answer your question, I respectively decline.
+### Can this be ported to X shell?
+I know this can be done with zsh since this started out as a port of my own implementation in zsh. In fact, most of this can be done with native zsh features.
 
 ### Is there a performance impact?
-I cannot quantify the performance impact at this stage. I don't notice it, but I might not be as sensitive as others.
-
-### Why not raise an issue or provide a pull request to have these features natively?
-The fish maintainers have more important things to worry about right now. Having these features natively is also a more complicated proposal than it seems. Hopefully, with some maturity, this will help with making that proposal easier.
+I cannot quantify the performance impact at this stage. I do not notice it, but I might not be as sensitive as others.
 
 [fish shell]: https://fishshell.com
 [fisher]: https://github.com/jorgebucaran/fisher
