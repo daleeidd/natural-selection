@@ -30,12 +30,24 @@ function _natural_selection --description 'Input wrapper to improve selection'
     not string match --quiet '*-clipboard' $input_function
   end
 
+  function _is_normal_function --no-scope-shadowing
+    functions --query $input_function
+  end
+
   function _is_cut_input_function --no-scope-shadowing
     string match --quiet 'cut-*' $input_function
   end
 
   function _is_single_character_input_function --no-scope-shadowing
     string match --quiet '*-char' $input_function
+  end
+
+  function _call_input_function --no-scope-shadowing
+    if _is_normal_function
+      $input_function
+    else
+      commandline --function $input_function
+    end
   end
 
   # If not cleared here, then logic further down will cause the cursor to get stuck. It would be nicer if we could do
@@ -53,10 +65,10 @@ function _natural_selection --description 'Input wrapper to improve selection'
     _natural_selection_end_selection
   else if test -n "$_flag_is_selecting"
     _natural_selection_begin_selection
-    commandline --function $input_function
+    _call_input_function
   else if not _natural_selection_is_selecting; and _is_native_input_function
     # Pass through. Keep this high for performance
-    commandline --function $input_function
+    _call_input_function
   else if string match --quiet 'paste-from-clipboard' $input_function
     _natural_selection_replace_selection -- (pbpaste)
   else if _natural_selection_is_selecting
@@ -74,7 +86,7 @@ function _natural_selection --description 'Input wrapper to improve selection'
       _natural_selection_end_selection
 
       if not _is_single_character_input_function
-        commandline --function $input_function
+        _call_input_function
       end
 
       # Ensure that commandline reflects selection
