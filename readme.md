@@ -41,8 +41,8 @@ set --local characters (string split '' "$letters$numbers$special$pairs")
 # The following should already be sent by your terminal:
 set --local up                  \e'[A'
 set --local down                \e'[B'
-set --local left                \e'[C'
-set --local right               \e'[D'
+set --local left                \e'[D'
+set --local right               \e'[C'
 set --local shift_left          \e'[1;2D'
 set --local shift_right         \e'[1;2C'
 set --local backspace           \x7f
@@ -67,8 +67,8 @@ set --local command_v           \e'[L'
 if functions --query _natural_selection
   bind $up                  '_natural_selection up-or-search'
   bind $down                '_natural_selection down-or-search'
-  bind $left                '_natural_selection forward-char'
-  bind $right               '_natural_selection backward-char'
+  bind $left                '_natural_selection backward-char'
+  bind $right               '_natural_selection forward-char'
   bind $shift_left          '_natural_selection backward-char --is-selecting'
   bind $shift_right         '_natural_selection forward-char --is-selecting'
   bind $command_left        '_natural_selection beginning-of-line'
