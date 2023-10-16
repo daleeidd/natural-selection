@@ -30,13 +30,6 @@ The `_natural_selection` function is all you need to know to get everything out 
 The following will depend on your terminal as most of these key bindings are not the default. Add the following to your fish key bindings:
 
 ```fish
-# Tweak according to need. This is not a complete list of keys!
-set --local letters 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'
-set --local numbers '1234567890'
-set --local special '!@#$%^&*_+-=\\;,./<>?:|'
-set --local pairs '\'"()[]{}'
-set --local characters (string split '' "$letters$numbers$special$pairs")
-
 # Use fish_key_reader to find out bindings. These are a combination of escape sequences and hex codes.
 # The following should already be sent by your terminal:
 set --local up                  \e'[A'
@@ -88,11 +81,7 @@ if functions --query _natural_selection
   bind $command_c           '_natural_selection copy-to-clipboard'
   bind $command_x           '_natural_selection cut-to-clipboard'
   bind $command_v           '_natural_selection paste-from-clipboard'
-
-  for character in $characters
-    set --local escaped (string escape -- $character)
-    bind $character "_natural_selection --is-character -- $escaped"
-  end
+  bind ''                   kill-selection end-selection self-insert
 end
 ```
 
