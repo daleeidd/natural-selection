@@ -8,10 +8,12 @@ function _natural_selection --description 'Input wrapper to improve selection'
   function _should_swap_cursor --no-scope-shadowing
     set --local cursor_position (commandline --cursor)
     switch $input_function
-      case 'forward-char' 'end-*'
+      case 'forward-char' 'end-of-*'
         test "$cursor_position" -lt $_natural_selection_selection_start
-      case 'backward-char' 'beginning-*'
+      case 'backward-char' 'beginning-of-*'
         test "$cursor_position" -gt $_natural_selection_selection_start
+      case '*'
+        false
     end
   end
 
