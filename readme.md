@@ -39,6 +39,7 @@ set --local characters (string split '' "$letters$numbers$special$pairs")
 
 # Use fish_key_reader to find out bindings. These are a combination of escape sequences and hex codes.
 # The following should already be sent by your terminal:
+set --local escape              \e
 set --local up                  \e'[A'
 set --local down                \e'[B'
 set --local left                \e'[D'
@@ -65,6 +66,7 @@ set --local command_x           \e'[O'
 set --local command_v           \e'[L'
 
 if functions --query _natural_selection
+  bind $escape              '_natural_selection end-selection'
   bind $up                  '_natural_selection up-or-search'
   bind $down                '_natural_selection down-or-search'
   bind $left                '_natural_selection backward-char'
