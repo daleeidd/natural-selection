@@ -33,6 +33,7 @@ The following will depend on your terminal as most of these key bindings are not
 # Use fish_key_reader to find out bindings. These are a combination of escape sequences and hex codes.
 # The following should already be sent by your terminal:
 set --local escape              \e
+set --local control_r           \cR
 set --local up                  \e'[A'
 set --local down                \e'[B'
 set --local left                \e'[D'
@@ -57,9 +58,13 @@ set --local option_delete       \ed
 set --local command_c           \e'[Q'
 set --local command_x           \e'[O'
 set --local command_v           \e'[L'
+set --local command_a           \e'[97;9u'
+set --local command_z           \e'[122;9u'
+set --local command_shift_z     \e'[122;10u'
 
 if functions --query _natural_selection
   bind $escape              '_natural_selection end-selection'
+  bind $control_r           '_natural_selection history-pager'
   bind $up                  '_natural_selection up-or-search'
   bind $down                '_natural_selection down-or-search'
   bind $left                '_natural_selection backward-char'
@@ -83,6 +88,9 @@ if functions --query _natural_selection
   bind $command_c           '_natural_selection copy-to-clipboard'
   bind $command_x           '_natural_selection cut-to-clipboard'
   bind $command_v           '_natural_selection paste-from-clipboard'
+  bind $command_a           '_natural_selection select-all'
+  bind $command_z           '_natural_selection undo'
+  bind $command_shift_z     '_natural_selection redo'
   bind ''                   kill-selection end-selection self-insert
 end
 ```
