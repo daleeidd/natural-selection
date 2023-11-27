@@ -55,10 +55,16 @@ function _natural_selection --description 'Input wrapper to improve selection'
     set --global _natural_selection_selection_start 0
     commandline --function beginning-of-line begin-selection end-of-line
   else if test $input_function = "copy-to-clipboard"
-    _natural_selection_get_selection | pbcopy
+    # Do not copy empty selection. Allows application native copy to work.
+    if _natural_selection_is_selecting
+      _natural_selection_get_selection | pbcopy
+    end
   else if test $input_function = "cut-to-clipboard"
-    _natural_selection_get_selection | pbcopy
-    _natural_selection_kill_selection
+    # Do not cut empty selection.
+    if _natural_selection_is_selecting
+      _natural_selection_get_selection | pbcopy
+      _natural_selection_kill_selection
+    end
   else if test $input_function = "paste-from-clipboard"
     _natural_selection_replace_selection -- (pbpaste)
   else
