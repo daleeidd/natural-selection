@@ -57,16 +57,28 @@ function _natural_selection --description 'Input wrapper to improve selection'
   else if test $input_function = "copy-to-clipboard"
     # Do not copy empty selection. Allows application native copy to work.
     if _natural_selection_is_selecting
-      _natural_selection_get_selection | pbcopy
+      if type -q wl-copy
+        _natural_selection_get_selection | wl-copy
+      else
+        _natural_selection_get_selection | pbcopy
+      end
     end
   else if test $input_function = "cut-to-clipboard"
     # Do not cut empty selection.
     if _natural_selection_is_selecting
-      _natural_selection_get_selection | pbcopy
+      if type -q wl-copy
+        _natural_selection_get_selection | wl-copy
+      else
+        _natural_selection_get_selection | pbcopy
+      end
       _natural_selection_kill_selection
     end
   else if test $input_function = "paste-from-clipboard"
-    _natural_selection_replace_selection -- (pbpaste)
+    if type -q wl-paste
+      _natural_selection_replace_selection -- (wl-paste)
+    else
+      _natural_selection_replace_selection -- (pbpaste)
+    end
   else
     if test -n "$_flag_is_selecting"
       _natural_selection_begin_selection
