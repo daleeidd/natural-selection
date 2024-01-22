@@ -43,7 +43,8 @@ function _natural_selection --description 'Input wrapper to improve selection'
   # In these cases, the cursor will seem to get stuck because we skip single-character cursor movement input functions when ending the selection.
   # To resolve this, we end the selection if the actual selection is empty.
   if _natural_selection_is_selecting
-    if test -z (commandline --current-selection)
+    set --local selection (commandline --current-selection)
+    if test -z "$selection"
       _natural_selection_end_selection
       commandline --function force-repaint
     end
