@@ -1,9 +1,9 @@
 # Natural Selection
 A [fish shell] plugin that makes selection as natural as a text editor.
 
-For the most part, it is a wrapper for existing input functions with its primary purpose to keep track of and manipulate the selected region.
+For the most part, it is a wrapper for existing input functions with its primary purpose to track/manipulate the selected region.
 
-It also provides functions for integrations with other plugins.
+It also provides functions for integrating with other plugins.
 
 ## Features
 
@@ -21,13 +21,13 @@ It also provides functions for integrations with other plugins.
 ## Installation
 `fisher install daleeidd/natural-selection`
 
-Follow on to [usage](#usage) as this plugin does not provide key bindings.
+Follow on to [usage](#usage), as this plugin does not provide key bindings.
 
 ## Usage
 
-The `_natural_selection` function is all you need to know to get everything out of the plugin. It is prefixed with an underscore to prevent namespace pollution as you will never call this from the command line.
+The `_natural_selection` function is all you need to know to get everything out of the plugin. It is prefixed with an underscore to prevent namespace pollution, as you will never call this from the command line.
 
-The following will depend on your terminal as most of these key bindings are not the default. Add the following to your fish key bindings:
+The following will depend on your terminal, as most of these key bindings are not the default. Add the following to your fish key bindings:
 
 ```fish
 # Use fish_key_reader to find out bindings. These are a combination of escape sequences and hex codes.
@@ -130,29 +130,26 @@ Standard usage.
 
 ## Frequently Asked Questions
 
-### Will this work in Vi mode?
-Unlikely. It was developed in default mode (Emacs) and I do not believe it is suitable for Vi mode.
+### What are the supported operating systems?
+It was developed on macOS, and it has not been tested elsewhere. But it should work for others.
 
-### Will this work in X operating system?
-Maybe. It was developed in macOS and it has not been tested elsewhere.
+### Can this work with X?
+If there is a binding conflict, then no. It will need an integration (not taking requests). Typically, paired symbols plugins need integrations.
 
-### Why cannot I use <kbd>⌘ Command</kbd> + <kbd>V</kbd> for paste?
+### Why can I not use <kbd>⌘ Command</kbd> + <kbd>V</kbd> for paste?
 You can. But you will lose paste functionality elsewhere like editors. This needs to be worked out still.
 
 ### Why are you not providing bindings on install?
-Conflicts mainly. It is advantageous to both parties for consumers to set their own bindings.
+The amount of bindings needed is often greater than what is available from the terminal, necessitating custom key mappings. Furthermore, there is a potential for conflicts. It is much easier to just have everyone configure this themselves.
 
-### Why are you suggesting binding characters?
-This is the simplest way to achieve results. A more elegant or efficient solution might be needed.
-
-### Can this work with X?
-If there is a binding conflict, then no. It will need an integration (not taking requests).
-
-### Can this be ported to X shell?
-I know this can be done with zsh since this started out as a port of my own implementation in zsh. In fact, most of this can be done with native zsh features.
+### Can this be ported to another shell?
+I know this can be done with zsh, since this started out as a port of my own implementation in zsh. In fact, most of this can be done with native zsh features.
 
 ### Is there a performance impact?
 I cannot quantify the performance impact at this stage. I do not notice it, but I might not be as sensitive as others.
+
+### Will this work in Vi mode?
+Vi mode has its own thing.
 
 [fish shell]: https://fishshell.com
 [fisher]: https://github.com/jorgebucaran/fisher
