@@ -33,7 +33,7 @@ The following will depend on your terminal, as most of these key bindings are no
 # Use fish_key_reader to find out bindings. These are a combination of escape sequences and hex codes.
 # The following should already be sent by your terminal:
 set --local escape              \e
-set --local control_r           \cR
+set --local control_r           \cr
 set --local up                  \e'[A'
 set --local down                \e'[B'
 set --local left                \e'[D'
@@ -42,22 +42,22 @@ set --local shift_left          \e'[1;2D'
 set --local shift_right         \e'[1;2C'
 set --local backspace           \x7f
 set --local delete              \e'[3~'
-set --local option_left         \eb
-set --local option_right        \ef
+set --local option_left         \e'[1;3D'
+set --local option_right        \e'[1;3C'
 # The following will need to be added to be sent by your terminal:
-set --local option_shift_left   \e'[1;10D'
-set --local option_shift_right  \e'[1;10C'
-set --local command_shift_left  \e'[H'
-set --local command_shift_right \e'[F'
-set --local command_left        \ca
-set --local command_right       \ce
-set --local command_backspace   \cU
-set --local command_delete      \ck
-set --local option_backspace    \cw
-set --local option_delete       \ed
-set --local command_c           \e'[Q'
-set --local command_x           \e'[O'
-set --local command_v           \e'[L'
+set --local option_shift_left   \e'[1;4D'
+set --local option_shift_right  \e'[1;4C'
+set --local command_shift_left  \e'[1;10D'
+set --local command_shift_right \e'[1;10C'
+set --local command_left        \e'[1;9D'
+set --local command_right       \e'[1;9C'
+set --local command_backspace   \e'[127;9u'
+set --local command_delete      \e'[3;9~'
+set --local option_backspace    \e'[127;3u'
+set --local option_delete       \e'[3;3~'
+set --local command_c           \e'[99;9u'
+set --local command_x           \e'[120;9u'
+set --local command_v           \e'[118;9u'
 set --local command_a           \e'[97;9u'
 set --local command_z           \e'[122;9u'
 set --local command_shift_z     \e'[122;10u'
