@@ -16,7 +16,7 @@ It also provides functions for integrating with other plugins.
 
 ## Requirements
 
-- Fish 3.6.0 or later
+- Fish 4.0.0 or later
 
 ## Installation
 `fisher install daleeidd/natural-selection`
@@ -30,68 +30,39 @@ The `_natural_selection` function is all you need to know to get everything out 
 The following will depend on your terminal, as most of these key bindings are not the default. Add the following to your fish key bindings:
 
 ```fish
-# Use fish_key_reader to find out bindings. These are a combination of escape sequences and hex codes.
-# The following should already be sent by your terminal:
-set --local escape              \e
-set --local control_r           \cr
-set --local up                  \e'[A'
-set --local down                \e'[B'
-set --local left                \e'[D'
-set --local right               \e'[C'
-set --local shift_left          \e'[1;2D'
-set --local shift_right         \e'[1;2C'
-set --local backspace           \x7f
-set --local delete              \e'[3~'
-set --local option_left         \e'[1;3D'
-set --local option_right        \e'[1;3C'
-# The following will need to be added to be sent by your terminal:
-set --local option_shift_left   \e'[1;4D'
-set --local option_shift_right  \e'[1;4C'
-set --local command_shift_left  \e'[1;10D'
-set --local command_shift_right \e'[1;10C'
-set --local command_left        \e'[1;9D'
-set --local command_right       \e'[1;9C'
-set --local command_backspace   \e'[127;9u'
-set --local command_delete      \e'[3;9~'
-set --local option_backspace    \e'[127;3u'
-set --local option_delete       \e'[3;3~'
-set --local command_c           \e'[99;9u'
-set --local command_x           \e'[120;9u'
-set --local command_v           \e'[118;9u'
-set --local command_a           \e'[97;9u'
-set --local command_z           \e'[122;9u'
-set --local command_shift_z     \e'[122;10u'
+# Use fish_key_reader to find out supported bindings.
+# If your terminal sends different sequences, you can bind those as well.
 
 if functions --query _natural_selection
-  bind $escape              '_natural_selection end-selection'
-  bind $control_r           '_natural_selection history-pager'
-  bind $up                  '_natural_selection up-or-search'
-  bind $down                '_natural_selection down-or-search'
-  bind $left                '_natural_selection backward-char'
-  bind $right               '_natural_selection forward-char'
-  bind $shift_left          '_natural_selection backward-char --is-selecting'
-  bind $shift_right         '_natural_selection forward-char --is-selecting'
-  bind $command_left        '_natural_selection beginning-of-line'
-  bind $command_right       '_natural_selection end-of-line'
-  bind $command_shift_left  '_natural_selection beginning-of-line --is-selecting'
-  bind $command_shift_right '_natural_selection end-of-line --is-selecting'
-  bind $option_left         '_natural_selection backward-word'
-  bind $option_right        '_natural_selection forward-word'
-  bind $option_shift_left   '_natural_selection backward-word --is-selecting'
-  bind $option_shift_right  '_natural_selection forward-word --is-selecting'
-  bind $delete              '_natural_selection delete-char'
-  bind $backspace           '_natural_selection backward-delete-char'
-  bind $command_delete      '_natural_selection kill-line'
-  bind $command_backspace   '_natural_selection backward-kill-line'
-  bind $option_backspace    '_natural_selection backward-kill-word'
-  bind $option_delete       '_natural_selection kill-word'
-  bind $command_c           '_natural_selection copy-to-clipboard'
-  bind $command_x           '_natural_selection cut-to-clipboard'
-  bind $command_v           '_natural_selection paste-from-clipboard'
-  bind $command_a           '_natural_selection select-all'
-  bind $command_z           '_natural_selection undo'
-  bind $command_shift_z     '_natural_selection redo'
-  bind ''                   kill-selection end-selection self-insert
+  bind escape            '_natural_selection end-selection'
+  bind ctrl-r            '_natural_selection history-pager'
+  bind up                '_natural_selection up-or-search'
+  bind down              '_natural_selection down-or-search'
+  bind left              '_natural_selection backward-char'
+  bind right             '_natural_selection forward-char'
+  bind shift-left        '_natural_selection backward-char --is-selecting'
+  bind shift-right       '_natural_selection forward-char --is-selecting'
+  bind super-left        '_natural_selection beginning-of-line'
+  bind super-right       '_natural_selection end-of-line'
+  bind super-shift-left  '_natural_selection beginning-of-line --is-selecting'
+  bind super-shift-right '_natural_selection end-of-line --is-selecting'
+  bind alt-left          '_natural_selection backward-word'
+  bind alt-right         '_natural_selection forward-word'
+  bind alt-shift-left    '_natural_selection backward-word --is-selecting'
+  bind alt-shift-right   '_natural_selection forward-word --is-selecting'
+  bind delete            '_natural_selection delete-char'
+  bind backspace         '_natural_selection backward-delete-char'
+  bind super-delete      '_natural_selection kill-line'
+  bind super-backspace   '_natural_selection backward-kill-line'
+  bind alt-backspace     '_natural_selection backward-kill-word'
+  bind alt-delete        '_natural_selection kill-word'
+  bind super-c           '_natural_selection copy-to-clipboard'
+  bind super-x           '_natural_selection cut-to-clipboard'
+  bind super-v           '_natural_selection paste-from-clipboard'
+  bind super-a           '_natural_selection select-all'
+  bind super-z           '_natural_selection undo'
+  bind super-shift-z     '_natural_selection redo'
+  bind ''                kill-selection end-selection self-insert
 end
 ```
 
