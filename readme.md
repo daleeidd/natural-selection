@@ -19,7 +19,7 @@ It also provides functions for integrating with other plugins.
 - Fish 4.0.0 or later
 
 ## Installation
-`fisher install daleeidd/natural-selection`
+`fisher install magenta404/natural-selection`
 
 Follow on to [usage](#usage), as this plugin does not provide key bindings.
 
